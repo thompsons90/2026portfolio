@@ -73,9 +73,9 @@ body {
   margin-top: 20px;
   padding-bottom: 50px;
   pointer-events: none;
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 3px black;
   /* For Firefox compatibility, although support is often implicit */
-  -moz-text-stroke: 2px black; 
+  -moz-text-stroke: 3px black; 
   
   /* hidden by default */
   opacity: 0;
