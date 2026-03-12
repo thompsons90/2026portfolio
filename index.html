@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <title>Scott E. Thompson - Portfolio</title>
+       <meta name="description" content="">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="author" content="Scott E. Thompson">
+      
+       <!-- Preconnect to external domains for performance -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://kit.fontawesome.com">
+        <!-- Stylesheets -->
+       <link rel="stylesheet" href="style.css">
+        <!-- FontAwesome -->
+       <script src="https://kit.fontawesome.com/2fa3166f23.js" crossorigin="anonymous"></script>
+
+
+       <!-- Lottie Animation -->
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+   </head>
+   <body>
+       <div class="body-container">
+           <div class="animation-wrapper">
+            <!-- background animation -->
+               <lottie-player
+               src="/images/Line waves animation background.json"
+               autoplay
+               loop
+               class="bg">
+               </lottie-player>
+               
+               <!-- rotating icon -->
+               <lottie-player
+               id="rotateIcon"
+               src="/icons/start_rotate.json"
+               class="icon">
+               </lottie-player>
+
+
+               <h1 id="headerText" class="header-text"></h1>
+           </div>
+          
+           <div class="content">
+               <p>Scroll down to see more content below the animation.</p>
+           </div>
+       </div>
+
+
+      
+       <script src="script.js" async defer></script>
+   </body>
+</html>

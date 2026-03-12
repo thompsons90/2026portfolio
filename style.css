@@ -1,0 +1,94 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Music&family=Lustria&display=swap');
+
+/* CSS Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: visible;
+  background-image: url("/images/business.webp");
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-size: 1.5rem;
+  font-family: 'Lustria', serif;
+  line-height: 1.6;
+}
+
+/* Animation Background */
+.animation-wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: #011424;
+  overflow: hidden;
+  left: 0;
+}
+
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: -100px; /* Adjust as needed to ensure it covers the entire width */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  padding: 0;
+}
+
+.icon {
+  position: relative;
+  z-index: 20;
+  cursor: pointer;
+  pointer-events: all;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+.header-text {
+  position: relative;
+  z-index: 20;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 50px;
+  pointer-events: none;
+  -webkit-text-stroke: 2px black;
+  /* For Firefox compatibility, although support is often implicit */
+  -moz-text-stroke: 2px black; 
+  
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform 5s ease-in;
+}
+
+.header-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content {
+  min-height: 100vh;
+  padding: 2rem;
+}
