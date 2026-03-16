@@ -9,46 +9,307 @@
        <meta name="author" content="Scott E. Thompson">
       
        <!-- Preconnect to external domains for performance -->
-       <link rel="preconnect" href="https://fonts.googleapis.com">
-       <link rel="preconnect" href="https://kit.fontawesome.com">
-        <!-- Stylesheets -->
-       <link rel="stylesheet" href="style.css">
-        <!-- FontAwesome -->
-       <script src="https://kit.fontawesome.com/2fa3166f23.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://kit.fontawesome.com">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- FontAwesome -->
+   <script src="https://kit.fontawesome.com/2fa3166f23.js" crossorigin="anonymous"></script>
 
+   <!-- Lottie Animation -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <!-- Desktop Navbar -->
+  <nav class="navbar-container" role="navigation" aria-label="Main navigation">
+    <div id="logo-container">
+      <div>
+        <a href="#header" aria-label="Go to top">
+          <img src="/images/treblesetLogo-no-background.png" id="trebleset-logo" alt="Trebleset logo">
+        </a>
+      </div>
+      Scott E. Thompson
+    </div>
+    <ul id="link-container">
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-       <!-- Lottie Animation -->
-       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-   </head>
-   <body>
-       <div class="body-container">
-           <div class="animation-wrapper">
-            <!-- background animation -->
-               <lottie-player
-               src="/images/Line waves animation background.json"
-               autoplay
-               loop
-               class="bg">
-               </lottie-player>
+  <!-- Mobile Navbar -->
+  <nav id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <div class="mobile-navbar">
+      <div class="links">
+        <ul>
+          <li>
+            <a href="#header" aria-label="Home">
+              <i class="fas fa-home" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#portfolio" aria-label="Portfolio">
+              <i class="fas fa-folder" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#skills" aria-label="Skills">
+              <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#about" aria-label="About">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" aria-label="Contact">
+              <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-               <!-- rotating icon -->
-               <lottie-player
-               id="rotateIcon"
-               src="/icons/start_rotate.json"
-               class="icon">
-               </lottie-player>
+  <div class="body-container">
+    <div class="animation-wrapper">
+      <!-- Mobile content (≤480px) -->
+      <div class="mobile-start-content">
+        <img src="/images/treblesetLogo-no-background.png" class="mobile-logo" alt="Trebleset logo">
+        <p class="mobile-tagline">Cutting the noise to build what matters.</p>
+      </div>
 
+      <!-- Desktop animations (≥481px) -->
+      <div class="desktop-animations">
+        <!-- background animation -->
+        <lottie-player
+        src="/images/Line waves animation background.json"
+        autoplay
+        loop
+        class="bg">
+        preserveAspectRatio="none";
+        </lottie-player>
 
-               <h1 id="headerText" class="header-text"></h1>
-           </div>
-          
-           <div class="content">
-               <p>This area is under construction. Come back soon to check for updates!</p>
-           </div>
-       </div>
+        <!-- rotating icon -->
+        <lottie-player
+        id="rotateIcon"
+        src="/icons/start_rotate.json"
+        class="icon">
+        </lottie-player>
 
+        <h1 id="headerText" class="header-text"></h1>
+      </div>
+    </div>
 
+    <!-- Hero Section -->
+    <section id="header">
+      <div class="mobile-hero">
+        <h1>Scott E. Thompson</h1>
+      </div>
+      <div class="hero-text">
+        <h1>
+          <span class="firstWord">Creative</span><br> Designs &amp; Solutions
+        </h1>
+        <a href="./images/2026 Resume.pdf" target="_blank" class="resume-cta" rel="noopener">
+          <span class="cta-text">Resume</span>
+        </a>
+      </div>
+      <div class="container">
+        <div class="overlay"></div>
+        <div class="image-container"></div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <h1>Skills</h1>
+    <hr class="divider">
+    <section id="skills">
+      <div class="skills-container-one">
+        <div class="icon-containers">
+          <img src="/icons/typescript.png" alt="TypeScript logo" class="skill-icon">
+          <p>TypeScript</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/react.png" alt="React logo" class="skill-icon">
+          <p>React</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/javascript.png" alt="JavaScript logo" class="skill-icon">
+          <p>JavaScript</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/sql-icon.png" alt="SQL logo" class="skill-icon">
+          <p>SQL</p>
+        </div>
+      </div>
+      <div class="skills-container-two">
+        <div class="icon-containers">
+          <img src="/icons/redux.png" alt="Redux logo" class="skill-icon">
+          <p>Redux</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/mongo-db-logo.png" alt="MongoDB logo" class="skill-icon">
+          <p>mongoDB</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/sass.png" alt="SQL logo" class="skill-icon">
+          <p>Sass</p>
+        </div>
+        <div class="icon-containers">
+          <img src="/icons/c-sharp-logo.png" alt="C# logo" class="skill-icon">
+          <p>C#</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <div class="portfolio-container">
+      <h1>Personal Portfolio</h1>
+      <hr class="divider">
       
-       <script src="script.js" async defer></script>
-   </body>
+      <section id="portfolio">
+        <article class="project-card">
+          <div class="cardImg-container" id="cardImg-container1" role="img" aria-label="Millwork Client Website Screenshot"></div>
+          <div class="deployed-container">
+            <a href="https://curious-figolla-5aa34b.netlify.app/" class="deployed-link" target="_blank" rel="noopener">
+              <h4>Millwork Client Website</h4>
+            </a>
+          </div>
+          <hr>
+          <a href="https://github.com/thompsons90/Nazwood-millworks" class="github-link" target="_blank" rel="noopener">
+            <p>GitHub Repo</p>
+          </a>
+          <h6>ReactJS, SCSS</h6>
+          <p>
+            This client wasn't drawing in the amount of business they needed to stay competitive in their growing market. I created a modern, responsive website to showcase their services and help set them apart from the competition.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="cardImg-container" id="cardImg-container2" role="img" aria-label="International Space Station Locator Screenshot"></div>
+          <a href="https://neon-dodol-053c51.netlify.app/" class="deployed-link" target="_blank" rel="noopener">
+            <h4>International Space Station Locater</h4>
+          </a>
+          <hr>
+          <a href="https://github.com/thompsons90/locate-iss" class="github-link" target="_blank" rel="noopener">
+            <p>GitHub Repo</p>
+          </a>
+          <h6>TypeScript, SCSS</h6>
+          <p>
+            3, 2, 1 - blast off! For all of you aspiring astronauts and aficionados. This app keeps track of the International Space Station as it continues its journey of over 27 years around the earth!</p>
+        </article>
+      
+        <article class="project-card">
+          <div class="cardImg-container" id="cardImg-container3" role="img" aria-label="Weather App Screenshot"></div>
+          <a href="https://sensational-chimera-490960.netlify.app/" class="deployed-link" target="_blank" rel="noopener">
+            <h4>Weather App</h4>
+          </a>
+          <hr>
+          <a href="https://github.com/thompsons90/weather-app" class="github-link" target="_blank" rel="noopener">
+            <p>GitHub Repo</p>
+          </a>
+          <h6>TypeScript, SCSS</h6>
+          <p>
+            My wife's travel agency needed a way to display current weather conditions for their clients. I created a simple yet effective weather app to help plan customer trips.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="cardImg-container" id="cardImg-container5" role="img" aria-label="Restaurant UI Screenshot"></div>
+          <a href="https://clintonmyers.github.io/fcc-mock-restaurant-ui/" target="_blank" class="deployed-link" rel="noopener">
+            <h4>Restaurant UI</h4>
+          </a>
+          <hr>
+          <a href="https://github.com/clintonmyers/fcc-mock-restaurant-ui" target="_blank" class="github-link" rel="noopener">
+            <p>GitHub Repo</p>
+          </a>
+          <h6>JavaScript - React, TypeScript, SCSS</h6>
+          <p>
+            Boungiorno! Starting a restaurant or food truck business? You'll need a customer friendly interface to showcase your menu. Attract new customers with vibrant theming and keep them coming back with a great user experience.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <div class="cardImg-container" id="cardImg-container6" role="img" aria-label="Movie Database Screenshot"></div>
+          <a href="https://github.com/storrence88/favorite-flix" target="_blank" class="deployed-link" rel="noopener">
+            <h4>Movie Database</h4>
+          </a>
+          <hr>
+          <a href="https://github.com/storrence88/favorite-flix" target="_blank" class="github-link" rel="noopener">
+            <p>GitHub Repo</p>
+          </a>
+          <h6>CSS, JavaScript, TypeScript</h6>
+          <p>
+          Looking for new movies to watch or trying to remember the name of a classic you grew up watching? This movie database app allows you to search for movies, view details, and find your next favorite to binge watch later. With a sleek design and user-friendly interface, it's the perfect tool for any movie enthusiast.  
+          </p>
+        </article>
+      </section>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+      <div id="scripture">
+        <p>"Whatever you do, work heartily, as for the Lord and not man"</p>
+        <p>- Colossians 3:23</p>
+      </div>
+      <div id="aboutMe-container">
+        <h1>About</h1>
+        <hr class="divider">
+        <p>
+          Thanks for visiting! I'm Scott Thompson, a Front-end Web Developer based near Dallas, TX. I specialize in building responsive and user-friendly web applications using modern technologies such as React and TypeScript.
+        </p>
+        <p>
+          I have contributed to the <a href="https://www.dallassoftwaredevelopers.org/" target="_blank" rel="noopener">Dallas Software Developers</a> community.
+        </p>
+        <p>
+          In addition to my technical skills, I am a lifelong learner, always striving to improve my skill set. Beyond coding, I enjoy time with my beautiful family, camping, sports, hunting, music, and involvement in my local church community.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <h1>Contact</h1>
+    <hr class="divider">
+    <section id="contact">
+      <img src="/images/newPortfolioPic.webp" alt="Profile image of Scott Thompson" id="profile">
+      <h3>Scott E. Thompson</h3>
+      <p>Web Developer</p>
+
+      <div id="card-container">
+        <div class="contact-containers">
+          <a href="https://github.com/thompsons90" target="_blank" rel="noopener" aria-label="GitHub Profile">
+            <img class="contact-icon" id="github-icon" src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" alt="GitHub logo">
+          </a>
+        </div>
+        <div class="contact-containers">
+          <a href="https://www.linkedin.com/in/%F0%9F%A4%9Dscott-thompson-600ba8b3/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+            <img class="contact-icon" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="LinkedIn logo">
+          </a>
+        </div>
+        <div class="contact-containers">
+          <a href="https://www.freecodecamp.org/fcc0ecdd58d-7a0d-4525-833a-65ca622209df" target="_blank" rel="noopener" aria-label="FreeCodeCamp Profile">
+            <img class="contact-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-codecamp-3445596-2878528.png" alt="FreeCodeCamp logo">
+          </a>
+        </div>
+      </div>
+      <div>
+        <button id="resumeBtn" type="button">
+          <a href="./images/2026 Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p>Scott E. Thompson</p>
+      <p>Updated 2025</p>
+    </footer>
+  </div>
+
+  <script src="script.js" async defer></script>
+</body>
 </html>
