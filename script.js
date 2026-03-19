@@ -35,6 +35,26 @@ const triggerReveal = () => {
   }, 5000);
 };
 
+// Show navbar after scrolling past animation section
+const navbarContainer = document.querySelector(".navbar-container");
+const mobileNav = document.getElementById("mobile-nav");
+const animationWrapper = document.querySelector(".animation-wrapper");
+
+const handleScroll = () => {
+  const animationHeight = animationWrapper.offsetHeight;
+  const scrollPosition = window.scrollY;
+  
+  if (scrollPosition > animationHeight - 100) {
+    navbarContainer?.classList.add("visible");
+    mobileNav?.classList.add("visible");
+  } else {
+    navbarContainer?.classList.remove("visible");
+    mobileNav?.classList.remove("visible");
+  }
+};
+
+window.addEventListener("scroll", handleScroll);
+
 // Only add event listeners if on desktop (≥641px) and elements exist
 if (isDesktop && icon) {
   icon.addEventListener("click", () => {
