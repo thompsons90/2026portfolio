@@ -1,180 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <meta charset="utf-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <title>Scott E. Thompson - Portfolio</title>
-       <meta name="description" content="">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <meta name="author" content="Scott E. Thompson">
-      
-       <!-- Preconnect to external domains for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://kit.fontawesome.com">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- FontAwesome -->
-   <script src="https://kit.fontawesome.com/2fa3166f23.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>Scott E. Thompson — Software Developer & Web Consultant</title>
+    <meta name="description" content="Scott E. Thompson is a full-stack developer and web consultant based in East Texas, building practical web apps and websites for businesses.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Scott E. Thompson">
 
-   <!-- Lottie Animation -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kit.fontawesome.com">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2fa3166f23.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-</head>
-<body>
-  <!-- Desktop Navbar -->
-  <nav class="navbar-container" role="navigation" aria-label="Main navigation">
-    <div id="logo-container">
-      <div>
-        <a href="#header" aria-label="Go to top">
+  </head>
+  <body>
+
+    <!-- Skip link: first focusable element, visible on focus for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Desktop Navbar — role="navigation" removed, implicit in <nav> -->
+    <nav class="navbar-container" aria-label="Main navigation">
+      <div id="logo-container">
+        <a href="#main-content" aria-label="Scott E. Thompson — go to main content">
           <img src="/icons/set_logo_border_no_bg.png" id="trebleset-logo" alt="Trebleset logo">
         </a>
+        <!-- aria-hidden: visual name only, accessible name is on the link above -->
+        <span aria-hidden="true">Scott E. Thompson</span>
       </div>
-      Scott E. Thompson
-    </div>
-    <ul id="link-container">
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+      <ul id="link-container">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <!-- Mobile Navbar -->
-  <nav id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <div class="mobile-navbar">
-      <div class="links">
-        <ul>
-          <li>
-            <a href="#header" aria-label="Home">
-              <i class="fas fa-home" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#portfolio" aria-label="Portfolio">
-              <i class="fas fa-folder" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#skills" aria-label="Skills">
-              <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#about" aria-label="About">
-              <i class="fas fa-user" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#contact" aria-label="Contact">
-              <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
-            </a>
-          </li>
+    <!-- Mobile Navbar -->
+    <nav id="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-navbar">
+        <ul class="mobile-nav__links">
+          <li><a href="#main-content" aria-label="Home"><i class="fas fa-home" aria-hidden="true"></i></a></li>
+          <li><a href="#portfolio"    aria-label="Portfolio"><i class="fas fa-folder" aria-hidden="true"></i></a></li>
+          <li><a href="#skills"       aria-label="Skills"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></a></li>
+          <li><a href="#about"        aria-label="About"><i class="fas fa-user" aria-hidden="true"></i></a></li>
+          <li><a href="#contact"      aria-label="Contact"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></a></li>
         </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="body-container">
-    <section id="animation">
-      <div class="animation-wrapper">
-        <!-- Mobile content (≤480px) -->
-        <div class="mobile-start-content">
-          <img src="/icons/set_logo_border_no_bg.png" class="mobile-logo" alt="Trebleset logo">
-          <p class="mobile-tagline">Cutting the noise to build what matters.</p>
+    <div class="body-container">
+
+      <!-- Animation section: entirely decorative, hidden from assistive technology -->
+      <section aria-hidden="true" id="animation">
+        <div class="animation-wrapper">
+
+          <!-- Mobile content (<=480px) -->
+          <div class="mobile-start-content">
+            <!-- alt="" — decorative duplicate of the nav logo -->
+            <img src="/icons/set_logo_border_no_bg.png" class="mobile-logo" alt="">
+            <p class="mobile-tagline">Cutting the noise to build what matters.</p>
+          </div>
+
+          <!-- Desktop animations (>=481px) -->
+          <div class="desktop-animations">
+            <lottie-player
+              src="/images/Line waves animation background.json"
+              autoplay loop
+              aria-hidden="true"
+              class="bg">
+            </lottie-player>
+
+            <lottie-player
+              id="rotateIcon"
+              src="/icons/start_rotate.json"
+              aria-hidden="true"
+              class="icon">
+            </lottie-player>
+
+            <!-- changed: was <h1> — only one h1 per page; this is decorative animated text -->
+            <p id="headerText" class="header-text" aria-hidden="true"></p>
+          </div>
+
         </div>
+      </section>
 
-        <!-- Desktop animations (≥481px) -->
-        <div class="desktop-animations">
-          <!-- background animation -->
-          <lottie-player
-          src="/images/Line waves animation background.json"
-          autoplay
-          loop
-          class="bg">
-          preserveAspectRatio="none";
-          </lottie-player>
+      <!-- Main content landmark — skip link target -->
+      <main id="main-content">
 
-          <!-- rotating icon -->
-          <lottie-player
-          id="rotateIcon"
-          src="/icons/start_rotate.json"
-          class="icon">
-          </lottie-player>
-          <h1 id="headerText" class="header-text"></h1>
-        </div>
-      </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-heading">
 
-    <!-- Hero Section -->
-   
+          <div class="hero-section__grid"       aria-hidden="true"></div>
+          <div class="hero-section__glow-green"  aria-hidden="true"></div>
+          <div class="hero-section__glow-blue"   aria-hidden="true"></div>
 
-    <!-- Skills Section -->
-  
+          <div class="hero-section__inner">
 
-    <!-- Portfolio Section -->
+            <!-- Left: text -->
+            <div class="hero-left">
 
+              <!-- aria-hidden: decorative; availability is conveyed by hero-avail below -->
+              <div class="hero-eyebrow" aria-hidden="true">
+                <span class="hero-eyebrow__dot"></span>
+                <span class="hero-eyebrow__text">Available for new projects</span>
+              </div>
 
-    <!-- About Section -->
-    <section id="about">
-      <div id="scripture">
-        <p>"Whatever you do, work heartily, as for the Lord and not man"</p>
-        <p>- Colossians 3:23</p>
-      </div>
-      <div id="aboutMe-container">
-        <h1>About</h1>
-        <hr class="divider">
-        <p>
-          Thanks for visiting! I'm Scott Thompson, a Front-end Web Developer based near Dallas, TX. I specialize in building responsive and user-friendly web applications using modern technologies such as React and TypeScript.
-        </p>
-        <p>
-          I have contributed to the <a href="https://www.dallassoftwaredevelopers.org/" target="_blank" rel="noopener">Dallas Software Developers</a> community.
-        </p>
-        <p>
-          In addition to my technical skills, I am a lifelong learner, always striving to improve my skill set. Beyond coding, I enjoy time with my beautiful family, camping, sports, hunting, music, and involvement in my local church community.
-        </p>
-      </div>
-    </section>
+              <!-- id referenced by aria-labelledby on parent section -->
+              <h1 id="hero-heading" class="hero-name">
+                <span class="hero-name__first">Scott E.</span>
+                <span class="hero-name__last">Thompson</span>
+              </h1>
 
-    <!-- Contact Section -->
-    <h1>Contact</h1>
-    <hr class="divider">
-    <section id="contact">
-      <img src="/images/newPortfolioPic.webp" alt="Profile image of Scott Thompson" id="profile">
-      <h3>Scott E. Thompson</h3>
-      <p>Web Developer</p>
+              <p class="hero-blurb">
+                The modern tech landscape is saturated with AI tools, platforms, and software
+                solutions all promising transformation. The real challenge today isn't access
+                to technology — it's identifying what actually solves a problem. Cutting
+                through the noise requires focusing on real business needs, evaluating tools
+                critically, and prioritizing solutions that deliver clear, practical outcomes
+                rather than chasing every new trend.
+              </p>
+              <p class="hero-blurb">
+                I build <strong>full-stack web apps</strong>, <strong>websites</strong>, and
+                find <strong>solutions</strong> to client problems. Based in East Texas.
+                Previously at <strong>GM Financial</strong> and <strong>Makse Group, LLC</strong>.
+              </p>
 
-      <div id="card-container">
-        <div class="contact-containers">
-          <a href="https://github.com/thompsons90" target="_blank" rel="noopener" aria-label="GitHub Profile">
-            <img class="contact-icon" id="github-icon" src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" alt="GitHub logo">
-          </a>
-        </div>
-        <div class="contact-containers">
-          <a href="https://www.linkedin.com/in/%F0%9F%A4%9Dscott-thompson-600ba8b3/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-            <img class="contact-icon" src="https://www.maryville.edu/wp-content/uploads/2015/11/Linkedin-logo-1-550x550-300x300.png" alt="LinkedIn logo">
-          </a>
-        </div>
-        <div class="contact-containers">
-          <a href="https://www.freecodecamp.org/fcc0ecdd58d-7a0d-4525-833a-65ca622209df" target="_blank" rel="noopener" aria-label="FreeCodeCamp Profile">
-            <img class="contact-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-codecamp-3445596-2878528.png" alt="FreeCodeCamp logo">
-          </a>
-        </div>
-      </div>
-      <div>
-        <button id="resumeBtn" type="button">
-          <a href="./images/2026 Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        </button>
-      </div>
-    </section>
+              <div class="hero-ctas">
+                <a href="#portfolio" class="hero-btn-primary">
+                  View my work <span class="hero-btn-arrow" aria-hidden="true">&#8594;</span>
+                </a>
+                <a href="#contact" class="hero-btn-ghost">Get in touch</a>
+              </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <p>Scott E. Thompson</p>
-      <p>Updated 2025</p>
-    </footer>
-  </div>
+              <!-- changed: div > ul/li — proper list semantics for screen readers -->
+              <ul class="hero-stats" aria-label="Quick stats">
+                <li class="hero-stat">
+                  <span class="hero-stat__num">30<sup>+</sup></span>
+                  <span class="hero-stat__label">Projects</span>
+                </li>
+                <li class="hero-stat">
+                  <span class="hero-stat__num">3<sup>yrs</sup></span>
+                  <span class="hero-stat__label">Experience</span>
+                </li>
+                <li class="hero-stat">
+                  <span class="hero-stat__num">2<sup>+</sup></span>
+                  <span class="hero-stat__label">Clients</span>
+                </li>
+                <li class="hero-stat">
+                  <!-- replace with your chosen business metric -->
+                  <span class="hero-stat__num">100<sup>%</sup></span>
+                  <span class="hero-stat__label">On-time delivery</span>
+                </li>
+              </ul>
 
-  <script src="script.js" async defer></script>
-</body>
+            </div>
+
+            <!-- Right: photo -->
+            <div class="hero-right">
+
+              <div class="hero-photo-wrapper">
+                <div class="hero-photo-frame">
+                  <img src="/images/newPortfolioPic.webp" alt="Scott E. Thompson, full-stack developer based in East Texas" />
+                </div>
+              </div>
+
+              <!-- role="status" — politely announces to screen readers without interrupting -->
+              <div class="hero-avail" role="status">
+                <span class="hero-avail__dot" aria-hidden="true"></span>
+                Open to work
+              </div>
+
+              <!-- changed: div > ul/li — proper list semantics -->
+              <ul class="hero-tech" aria-label="Tech stack">
+                <li class="hero-tech__pill">React</li>
+                <li class="hero-tech__pill">TypeScript</li>
+                <li class="hero-tech__pill">C#.NET</li>
+                <li class="hero-tech__pill">PostgreSQL</li>
+                <li class="hero-tech__pill">AI Prompt Engineering</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+          <div class="hero-scroll" aria-hidden="true">
+            <div class="hero-scroll__line"></div>
+            <span class="hero-scroll__text">Scroll</span>
+          </div>
+
+        </section>
+
+        <!-- Skills Section -->
+
+        <!-- Portfolio Section -->
+
+        <!-- About Section -->
+
+      </main>
+
+    </div><!-- /.body-container -->
+
+    <script src="script.js" async defer></script>
+  </body>
 </html>
