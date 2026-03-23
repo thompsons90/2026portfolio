@@ -53,17 +53,14 @@
     <div class="body-container">
 
       <!-- Animation section: entirely decorative, hidden from assistive technology -->
-      <section aria-hidden="true" id="animation">
+      <!-- <section aria-hidden="true" id="animation">
         <div class="animation-wrapper">
-
-          <!-- Mobile content (<=480px) -->
+          
           <div class="mobile-start-content">
-            <!-- alt="" — decorative duplicate of the nav logo -->
             <img src="/icons/set_logo_border_no_bg.png" class="mobile-logo" alt="">
             <p class="mobile-tagline">Cutting the noise to build what matters.</p>
           </div>
 
-          <!-- Desktop animations (>=481px) -->
           <div class="desktop-animations">
             <lottie-player
               src="/images/Line waves animation background.json"
@@ -79,12 +76,11 @@
               class="icon">
             </lottie-player>
 
-            <!-- changed: was <h1> — only one h1 per page; this is decorative animated text -->
             <p id="headerText" class="header-text" aria-hidden="true"></p>
           </div>
 
         </div>
-      </section>
+      </section> -->
 
       <!-- Main content landmark — skip link target -->
       <main id="main-content">
@@ -191,6 +187,296 @@
           </div>
 
         </section>
+
+        <!-- Highlights & Popup Portfolio Section -->
+         <section class="highlights-section" aria-labelledby="highlights-heading" id="highlights">
+ 
+  <div class="highlights-section__header">
+    <h2 id="highlights-heading" class="highlights-section__title">
+      High<span>lights</span>
+    </h2>
+  </div>
+ 
+  <!-- Bento grid -->
+  <div class="hl-grid" role="list">
+ 
+    <!-- Card 1 — Current role (accent) -->
+    <article class="hl-card hl-card--accent" role="listitem">
+      <div class="hl-card__role">Software Engineer</div>
+      <div class="hl-card__company">Doma REI, LLC</div>
+      <div class="hl-card__period">Feb 2026 — Present</div>
+      <p class="hl-card__body">
+        Spearheaded a comprehensive UI/UX overhaul replacing fragmented CSS with a unified
+        component library and global design tokens — ensuring WCAG compliance and reducing
+        styling overhead across the entire frontend.
+      </p>
+      <div class="hl-card__tech" aria-label="Technologies">
+        <span class="hl-pill">Svelte</span>
+        <span class="hl-pill">TypeScript</span>
+        <span class="hl-pill">Tailwind</span>
+        <span class="hl-pill">Docker</span>
+      </div>
+    </article>
+ 
+    <!-- Card 2 -->
+    <article class="hl-card" role="listitem">
+      <div class="hl-card__role">Software Engineer II</div>
+      <div class="hl-card__company">GM Financial</div>
+      <div class="hl-card__period">May 2024 — Dec 2025</div>
+      <p class="hl-card__body">
+        Reduced production incidents ~40% quarter-over-quarter by leading cross-functional
+        requirements alignment. Migrated 30% of core .NET services to the public cloud,
+        improving pipeline stability.
+      </p>
+      <div class="hl-card__tech" aria-label="Technologies">
+        <span class="hl-pill">C# .NET</span>
+        <span class="hl-pill">Azure DevOps</span>
+        <span class="hl-pill">CosmosDB</span>
+        <span class="hl-pill">K8s</span>
+      </div>
+    </article>
+ 
+    <!-- Card 3 -->
+    <article class="hl-card" role="listitem">
+      <div class="hl-card__role">Associate Software Engineer</div>
+      <div class="hl-card__company">Makse Group, LLC</div>
+      <div class="hl-card__period">Aug 2022 — Sep 2023</div>
+      <p class="hl-card__body">
+        Engineered reusable React components with Material-UI and optimized SQL data
+        exchange to reduce response latency. Developed RESTful APIs following OpenAPI
+        and security standards.
+      </p>
+      <div class="hl-card__tech" aria-label="Technologies">
+        <span class="hl-pill">React</span>
+        <span class="hl-pill">Material-UI</span>
+        <span class="hl-pill">SQL</span>
+        <span class="hl-pill">Figma</span>
+      </div>
+    </article>
+ 
+    <!-- Card 4 -->
+    <article class="hl-card" role="listitem">
+      <div class="hl-card__role">Web Developer</div>
+      <div class="hl-card__company">Nazwood Millworks</div>
+      <div class="hl-card__period">Jul 2022 — Aug 2022</div>
+      <p class="hl-card__body">
+        Delivered a responsive, accessible SPA from Figma wireframes achieving a 90+
+        Lighthouse accessibility score and improved client engagement metrics.
+      </p>
+      <div class="hl-card__tech" aria-label="Technologies">
+        <span class="hl-pill">React</span>
+        <span class="hl-pill">TypeScript</span>
+        <span class="hl-pill">CSS</span>
+      </div>
+    </article>
+ 
+    <!-- Card 5 — Ghost placeholder -->
+    <article class="hl-card hl-card--ghost" role="listitem" aria-hidden="true">
+      <span class="hl-ghost-label">More coming soon</span>
+    </article>
+ 
+    <!-- Card 6 — Stats -->
+    <article class="hl-card hl-card--stats" role="listitem" aria-label="Career stats">
+      <div>
+        <div class="hl-stat__num">3<sup>+</sup></div>
+        <div class="hl-stat__label">Years experience</div>
+      </div>
+      <div>
+        <div class="hl-stat__num">30<sup>+</sup></div>
+        <div class="hl-stat__label">Projects shipped</div>
+      </div>
+      <div>
+        <div class="hl-stat__num">4</div>
+        <div class="hl-stat__label">Companies</div>
+      </div>
+    </article>
+ 
+  </div>
+ 
+  <!-- Trigger button -->
+  <button
+    class="hl-see-more"
+    onclick="hlModalOpen()"
+    aria-haspopup="dialog"
+    aria-controls="hl-modal"
+  >
+    See full history
+    <span class="hl-see-more__arrow" aria-hidden="true">→</span>
+  </button>
+ 
+</section>
+ 
+ 
+<!-- ═══════════════════════════════════════════════
+     MODAL — Timeline (Template 2)
+     ═══════════════════════════════════════════════ -->
+<div
+  class="hl-modal-overlay"
+  id="hl-modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="hl-modal-title"
+  aria-describedby="hl-modal-body"
+  onclick="hlOverlayClick(event)"
+>
+  <div class="hl-modal" id="hl-modal">
+ 
+    <div class="hl-modal__header">
+      <div>
+        <h2 id="hl-modal-title" class="hl-modal__title">
+          Professional <span>Experience</span>
+          <span class="hl-modal__count">4 roles</span>
+        </h2>
+      </div>
+      <button
+        class="hl-modal__close"
+        onclick="hlModalClose()"
+        aria-label="Close experience history"
+      >&#215;</button>
+    </div>
+ 
+    <div class="hl-modal__body" id="hl-modal-body">
+      <div class="hl-timeline">
+ 
+        <!-- Role 1 -->
+        <div class="hl-tl-item">
+          <div class="hl-tl-item__top">
+            <div>
+              <div class="hl-tl-item__role">Software Engineer</div>
+              <div class="hl-tl-item__company">Doma REI, LLC</div>
+            </div>
+            <div class="hl-tl-item__period">Feb 2026 — Present</div>
+          </div>
+          <ul class="hl-tl-item__bullets">
+            <li>
+              Utilized AI to spearhead a comprehensive UI/UX overhaul by replacing fragmented
+              CSS with a unified component library; leveraged global design tokens to automate
+              consistency and reduce styling overhead while ensuring WCAG accessibility compliance.
+            </li>
+          </ul>
+          <div class="hl-tl-item__tech" aria-label="Technologies">
+            <span class="hl-pill">Svelte</span>
+            <span class="hl-pill">TypeScript</span>
+            <span class="hl-pill">Docker</span>
+            <span class="hl-pill">Tailwind</span>
+            <span class="hl-pill">OpenCode &amp; CoPilot AI</span>
+            <span class="hl-pill">Git</span>
+          </div>
+        </div>
+ 
+        <!-- Role 2 -->
+        <div class="hl-tl-item">
+          <div class="hl-tl-item__top">
+            <div>
+              <div class="hl-tl-item__role">Software Engineer II</div>
+              <div class="hl-tl-item__company">GM Financial</div>
+            </div>
+            <div class="hl-tl-item__period">May 2024 — Dec 2025</div>
+          </div>
+          <ul class="hl-tl-item__bullets">
+            <li>
+              Strengthened BDD by leading cross-functional requirements alignment between product
+              and engineering, translating business goals into precise technical stories and
+              reducing production incidents by ~40% quarter-over-quarter.
+            </li>
+            <li>
+              Solved architectural inconsistencies in JavaScript Functions, standardizing
+              implementations and reducing rework while improving release reliability.
+            </li>
+            <li>
+              Addressed instability in legacy .NET services, migrating and modernizing 30% of
+              core services to the public cloud — upgrading frameworks, resolving dependency
+              conflicts, and integrating automated testing.
+            </li>
+          </ul>
+          <div class="hl-tl-item__tech" aria-label="Technologies">
+            <span class="hl-pill">Vanilla JS</span>
+            <span class="hl-pill">SQL</span>
+            <span class="hl-pill">C# .NET</span>
+            <span class="hl-pill">Azure DevOps</span>
+            <span class="hl-pill">CoPilot</span>
+            <span class="hl-pill">K8s</span>
+            <span class="hl-pill">CosmosDB</span>
+            <span class="hl-pill">Postman</span>
+          </div>
+        </div>
+ 
+        <!-- Role 3 -->
+        <div class="hl-tl-item">
+          <div class="hl-tl-item__top">
+            <div>
+              <div class="hl-tl-item__role">Associate Software Engineer</div>
+              <div class="hl-tl-item__company">Makse Group, LLC</div>
+            </div>
+            <div class="hl-tl-item__period">Aug 2022 — Sep 2023</div>
+          </div>
+          <ul class="hl-tl-item__bullets">
+            <li>
+              Engineered reusable, modular React features styled with Material-UI, utilizing
+              SQL to optimize data exchange between UI and backend to cut response latency
+              and enhance user experience.
+            </li>
+            <li>
+              Worked within a Git-based monorepo architecture to develop and maintain shared
+              React components and libraries, enabling consistent UI patterns and improving
+              code reuse across applications.
+            </li>
+            <li>
+              Developed RESTful APIs following OpenAPI and security standards, enabling
+              integration across internal tooling.
+            </li>
+            <li>
+              Ensured cross-browser compatibility and mobile responsiveness across all
+              supported devices.
+            </li>
+          </ul>
+          <div class="hl-tl-item__tech" aria-label="Technologies">
+            <span class="hl-pill">React</span>
+            <span class="hl-pill">Material-UI</span>
+            <span class="hl-pill">JavaScript</span>
+            <span class="hl-pill">SQL</span>
+            <span class="hl-pill">Git</span>
+            <span class="hl-pill">XML</span>
+            <span class="hl-pill">API Dev</span>
+            <span class="hl-pill">Figma</span>
+          </div>
+        </div>
+ 
+        <!-- Role 4 -->
+        <div class="hl-tl-item">
+          <div class="hl-tl-item__top">
+            <div>
+              <div class="hl-tl-item__role">Web Developer</div>
+              <div class="hl-tl-item__company">Nazwood Millworks</div>
+            </div>
+            <div class="hl-tl-item__period">Jul 2022 — Aug 2022</div>
+          </div>
+          <ul class="hl-tl-item__bullets">
+            <li>
+              Built the entire frontend development lifecycle — architecting components,
+              integrating UX flows, conducting browser/device testing, and maintaining
+              accessibility standards.
+            </li>
+            <li>
+              Delivered a responsive, accessible single-page web app from Figma wireframes,
+              improving client engagement metrics and achieving a 90+ Lighthouse
+              accessibility score.
+            </li>
+          </ul>
+          <div class="hl-tl-item__tech" aria-label="Technologies">
+            <span class="hl-pill">TypeScript</span>
+            <span class="hl-pill">React</span>
+            <span class="hl-pill">JavaScript</span>
+            <span class="hl-pill">HTML</span>
+            <span class="hl-pill">CSS</span>
+          </div>
+        </div>
+ 
+      </div><!-- /.hl-timeline -->
+    </div><!-- /.hl-modal__body -->
+ 
+  </div><!-- /.hl-modal -->
+</div><!-- /.hl-modal-overlay -->
 
         <!-- Skills Section -->
 

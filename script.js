@@ -43,7 +43,7 @@ const animationWrapper = document.querySelector(".animation-wrapper");
 const handleScroll = () => {
   const animationHeight = animationWrapper.offsetHeight;
   const scrollPosition = window.scrollY;
-  
+
   if (scrollPosition > animationHeight - 100) {
     navbarContainer?.classList.add("visible");
     mobileNav?.classList.add("visible");
@@ -65,3 +65,83 @@ if (isDesktop && icon) {
   icon.addEventListener("click", triggerReveal);
   document.addEventListener("keydown", triggerReveal);
 }
+
+// ** Highlights & Popup Portfolio Section **
+(function () {
+  "use strict";
+
+  var overlay = document.getElementById("hl-modal-overlay");
+  var modal = document.getElementById("hl-modal");
+  var prevFocus = null;
+
+  /* All focusable elements inside the modal */
+  function getFocusable() {
+    return Array.from(
+      modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ),
+    );
+  }
+
+  /* Open */
+  window.hlModalOpen = function () {
+    prevFocus = document.activeElement;
+    overlay.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+
+    /* Focus the close button after animation */
+    setTimeout(function () {
+      var focusable = getFocusable();
+      if (focusable.length) focusable[0].focus();
+    }, 320);
+  };
+
+  /* Close */
+  window.hlModalClose = function () {
+    overlay.classList.remove("is-open");
+    document.body.style.overflow = "";
+    if (prevFocus) prevFocus.focus();
+    /* Reset scroll position for next open */
+    setTimeout(function () {
+      document.getElementById("hl-modal-body").scrollTop = 0;
+    }, 300);
+  };
+
+  /* Close on overlay backdrop click */
+  window.hlOverlayClick = function (e) {
+    if (e.target === overlay) hlModalClose();
+  };
+
+  /* Keyboard: Escape to close, Tab trap inside modal */
+  document.addEventListener("keydown", function (e) {
+    if (!overlay.classList.contains("is-open")) return;
+
+    if (e.key === "Escape") {
+      hlModalClose();
+      return;
+    }
+
+    if (e.key === "Tab") {
+      var focusable = getFocusable();
+      if (!focusable.length) {
+        e.preventDefault();
+        return;
+      }
+
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  });
+})();
