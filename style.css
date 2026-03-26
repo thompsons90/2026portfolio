@@ -190,6 +190,7 @@ h6 {
   margin-bottom: 0;
 }
 
+
 .divider {
   background-color: white;
   box-shadow: 1px 1px 1px #333;
@@ -310,30 +311,19 @@ h6 {
 }
 
 .hero-name__first { display: block; color: var(--text); }
-.hero-name__last  { display: block; color: var(--green-light); }
+.hero-name__last  { display: block; 
+  background: linear-gradient(90deg, var(--green-light), var(--blue-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback */
+  padding-bottom: 1rem;
+  }
 
-.hero-blurb {
-  font-family: var(--font-body);
-  font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--text-muted);
-  max-width: 520px;
-  margin-bottom: 1.25rem;
-  text-align: left;
-  text-shadow: none;
-  opacity: 0;
-  animation: heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.38s forwards;
+.hero-emphasize {
+  color: var(--green-light); 
 }
 
-.hero-blurb + .hero-blurb {
-  margin-bottom: 2.5rem;
-}
-
-.hero-blurb strong {
-  color: rgba(232, 245, 233, 0.88);
-  font-weight: 500;
-}
 
 .hero-ctas {
   display: flex;
@@ -651,6 +641,48 @@ h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   MISSION SECTION
+   ═══════════════════════════════════════════════════════════ */
+/* Hidden on mobile, visible on tablets and larger */
+.mission-section {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .mission-section {
+    display: flex;
+    padding: 5rem 4rem;
+    background-color: #0f2018;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.mission-blurb {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-shadow: none;
+  opacity: 0;
+  animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards;
+}
+
+.mission-blurb + .mission-blurb {
+  margin-bottom: 2.5rem;
+}
+
+.mission-blurb strong {
+  color: rgba(232, 245, 233, 0.88);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
    HIGHLIGHTS SECTION
    ═══════════════════════════════════════════════════════════ */
 
@@ -742,7 +774,7 @@ h6 {
 
 .hl-card__role {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #e8f5e9;
   margin-bottom: 0.35rem;
@@ -752,7 +784,7 @@ h6 {
 
 .hl-card__company {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   color: var(--green-light);
   letter-spacing: 0.04em;
   margin-bottom: 0.35rem;
@@ -771,7 +803,7 @@ h6 {
 
 .hl-card__body {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   color: rgba(232, 245, 233, 0.72);
   font-weight: 300;
@@ -1046,7 +1078,7 @@ h6 {
 
 .hl-tl-item__role {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #e8f5e9;
   text-shadow: none;
@@ -1054,7 +1086,7 @@ h6 {
 
 .hl-tl-item__period {
   font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: rgba(139, 164, 204, 0.6);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1065,7 +1097,7 @@ h6 {
 
 .hl-tl-item__company {
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 1rem;
   color: var(--green-light);
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
@@ -1080,7 +1112,7 @@ h6 {
 
 .hl-tl-item__bullets li {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: rgba(232, 245, 233, 0.72);
   font-weight: 300;
