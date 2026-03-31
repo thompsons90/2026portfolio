@@ -7,11 +7,11 @@
 (function () {
   "use strict";
 
-  var seeBtn = document.getElementById("hl-see-more-btn");
-  var backBtn = document.getElementById("hl-back-btn");
-  var panel = document.getElementById("hl-experience");
-  var inner = document.getElementById("hl-experience-inner");
-  var section = document.querySelector(".highlights-section");
+  var highlightsSeeMoreBtn = document.getElementById("highlights-see-more-btn");
+  var highlightsBackBtn = document.getElementById("highlights-back-btn");
+  var highlightsPanel = document.getElementById("highlights-experience");
+  var highlightsInner = document.getElementById("highlights-experience-inner");
+  var highlightsSection = document.querySelector(".highlights-section");
   var prevFocus = null;
   var isAnimating = false;
 
@@ -22,7 +22,7 @@
   pill.setAttribute("aria-hidden", "true");
   pill.style.cssText = [
     "position:fixed",
-    "z-index:499" /* just below .hl-experience (500) */,
+    "z-index:499" /* just below .highlights-experience (500) */,
     "pointer-events:none",
     "opacity:0",
     "background:#0f2018" /* matches panel background */,
@@ -45,7 +45,7 @@
 
   function getFocusable() {
     return Array.from(
-      panel.querySelectorAll(
+      highlightsPanel.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       ),
     );
@@ -57,8 +57,8 @@
   }
 
   function blurSection(on) {
-    var els = section.querySelectorAll(
-      ".hl-card, .highlights-section__header, .hl-see-more",
+    var els = highlightsSection.querySelectorAll(
+      ".highlights-card, .highlights-section__header, .highlights-see-more",
     );
     [].forEach.call(els, function (el) {
       if (on) {
@@ -113,25 +113,25 @@
   }
 
   function openInstant() {
-    panel.classList.add("is-open");
-    panel.style.opacity = "1";
+    highlightsPanel.classList.add("is-open");
+    highlightsPanel.style.opacity = "1";
     document.body.style.overflow = "hidden";
-    seeBtn.setAttribute("aria-expanded", "true");
-    panel.setAttribute("aria-hidden", "false");
-    inner.scrollTop = 0;
+    highlightsSeeMoreBtn.setAttribute("aria-expanded", "true");
+    highlightsPanel.setAttribute("aria-hidden", "false");
+    highlightsInner.scrollTop = 0;
     focusFirst();
   }
 
   function openMorph() {
     isAnimating = true;
-    var btnRect = seeBtn.getBoundingClientRect();
+    var btnRect = highlightsSeeMoreBtn.getBoundingClientRect();
 
     // Beat 1 — micro-press
-    seeBtn.style.transition = "transform 0.1s ease";
-    seeBtn.style.transform = "scale(0.97)";
+    highlightsSeeMoreBtn.style.transition = "transform 0.1s ease";
+    highlightsSeeMoreBtn.style.transform = "scale(0.97)";
 
     setTimeout(function () {
-      seeBtn.style.transform = "scale(1)";
+      highlightsSeeMoreBtn.style.transform = "scale(1)";
 
       // Beat 2 — blur section behind
       blurSection(true);
@@ -164,12 +164,12 @@
             // Beat 4 — swap pill for real panel mid-flight
             setTimeout(function () {
               // Reveal panel (no fade — pill already occupies this space)
-              panel.classList.add("is-open");
-              panel.style.opacity = "1";
+              highlightsPanel.classList.add("is-open");
+              highlightsPanel.style.opacity = "1";
               document.body.style.overflow = "hidden";
-              seeBtn.setAttribute("aria-expanded", "true");
-              panel.setAttribute("aria-hidden", "false");
-              inner.scrollTop = 0;
+              highlightsSeeMoreBtn.setAttribute("aria-expanded", "true");
+              highlightsPanel.setAttribute("aria-hidden", "false");
+              highlightsInner.scrollTop = 0;
 
               // Un-blur section content (it's now hidden behind the panel)
               blurSection(false);
@@ -180,7 +180,7 @@
 
               // Beat 5 — stagger panel content in
               var staggerEls = Array.from(
-                panel.querySelectorAll(".hl-experience__header, .hl-tl-item"),
+                highlightsPanel.querySelectorAll(".highlights-experience__header, .highlights-tl-item"),
               );
               staggerIn(staggerEls);
 
@@ -211,12 +211,12 @@
   }
 
   function closeInstant() {
-    panel.classList.remove("is-open");
-    panel.style.opacity = "";
+    highlightsPanel.classList.remove("is-open");
+    highlightsPanel.style.opacity = "";
     document.body.style.overflow = "";
-    seeBtn.setAttribute("aria-expanded", "false");
-    panel.setAttribute("aria-hidden", "true");
-    inner.scrollTop = 0;
+    highlightsSeeMoreBtn.setAttribute("aria-expanded", "false");
+    highlightsPanel.setAttribute("aria-hidden", "true");
+    highlightsInner.scrollTop = 0;
     if (prevFocus) prevFocus.focus();
   }
 
@@ -225,7 +225,7 @@
 
     // Stagger content out
     var staggerEls = Array.from(
-      panel.querySelectorAll(".hl-experience__header, .hl-tl-item"),
+      highlightsPanel.querySelectorAll(".highlights-experience__header, .highlights-tl-item"),
     );
     staggerEls.forEach(function (el, i) {
       el.style.transition = [
@@ -240,18 +240,18 @@
 
     setTimeout(function () {
       // Fade panel out
-      panel.style.transition = "opacity 0.22s ease";
-      panel.style.opacity = "0";
+      highlightsPanel.style.transition = "opacity 0.22s ease";
+      highlightsPanel.style.opacity = "0";
 
       setTimeout(function () {
         // Reset panel
-        panel.classList.remove("is-open");
-        panel.style.opacity = "";
-        panel.style.transition = "";
-        panel.setAttribute("aria-hidden", "true");
-        seeBtn.setAttribute("aria-expanded", "false");
+        highlightsPanel.classList.remove("is-open");
+        highlightsPanel.style.opacity = "";
+        highlightsPanel.style.transition = "";
+        highlightsPanel.setAttribute("aria-hidden", "true");
+        highlightsSeeMoreBtn.setAttribute("aria-expanded", "false");
         document.body.style.overflow = "";
-        inner.scrollTop = 0;
+        highlightsInner.scrollTop = 0;
 
         // Reset stagger styles for next open
         clearStagger(staggerEls);
@@ -264,20 +264,20 @@
 
   // ── EVENT BINDINGS ────────────────────────────────────────────
 
-  if (seeBtn) seeBtn.addEventListener("click", openPanel);
-  if (backBtn) backBtn.addEventListener("click", closePanel);
+  if (highlightsSeeMoreBtn) highlightsSeeMoreBtn.addEventListener("click", openPanel);
+  if (highlightsBackBtn) highlightsBackBtn.addEventListener("click", closePanel);
 
   // Keyboard: Escape closes
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Escape") return;
-    if (!panel.classList.contains("is-open")) return;
+    if (!highlightsPanel.classList.contains("is-open")) return;
     closePanel();
   });
 
   // Focus trap inside panel
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Tab") return;
-    if (!panel.classList.contains("is-open")) return;
+    if (!highlightsPanel.classList.contains("is-open")) return;
 
     var focusable = getFocusable();
     if (!focusable.length) {
