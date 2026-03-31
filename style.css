@@ -1198,3 +1198,245 @@ h6 {
     will-change: auto;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS SECTION
+   ═══════════════════════════════════════════════════════════ */
+     /* ── Section shell ── */
+  .testimonials {
+    background: var(--bg);
+    padding: 64px 24px;
+    font-family: var(--fb);
+  }
+ 
+  .testimonials__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+ 
+  /* ── Label & heading ── */
+  .testimonials__label {
+    display: inline-block;
+    font-family: var(--fb);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--border-green);
+    border-radius: 4px;
+    padding: 5px 11px;
+    margin-bottom: 22px;
+  }
+ 
+  .testimonials__heading {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 36px;
+    line-height: 1.15;
+  }
+ 
+  .testimonials__heading em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+ 
+  /* ────────────────────────────────────────────
+     SCROLL STRIP — default (mobile first)
+  ──────────────────────────────────────────── */
+  .testimonials__track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+  }
+ 
+  .testimonials__track::-webkit-scrollbar {
+    height: 4px;
+  }
+ 
+  .testimonials__track::-webkit-scrollbar-track {
+    background: rgba(57, 121, 53, 0.08);
+    border-radius: 2px;
+  }
+ 
+  .testimonials__track::-webkit-scrollbar-thumb {
+    background: rgba(57, 121, 53, 0.35);
+    border-radius: 2px;
+  }
+ 
+  /* ── Shared card base ── */
+  .testimonial-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(57, 121, 53, 0.06);
+    border: 1px solid var(--border-green);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+ 
+  .testimonial-card:hover {
+    border-color: rgba(57, 121, 53, 0.65);
+    background: rgba(57, 121, 53, 0.10);
+  }
+ 
+  /* Strip card sizing (mobile default) */
+  .testimonials__track .testimonial-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    padding: 32px 28px 24px;
+  }
+ 
+  /* Hide stars on mobile to keep cards compact */
+  .testimonial-card__stars {
+    display: none;
+  }
+ 
+  /* ── Decorative glyph ── */
+  .testimonial-card__glyph {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    font-family: var(--font-display);
+    font-size: 110px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--green);
+    opacity: 0.13;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+ 
+  /* ── Stars ── */
+  .testimonial-card__stars {
+    display: flex;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+  }
+ 
+  .testimonial-card__star {
+    width: 12px;
+    height: 12px;
+    background: var(--green-light);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+ 
+  /* ── Quote ── */
+  .testimonial-card__quote {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin: 0;
+    padding-top: 22px;
+  }
+ 
+  /* ── Divider ── */
+  .testimonial-card__divider {
+    height: 1px;
+    background: var(--border-green);
+  }
+ 
+  /* ── Footer ── */
+  .testimonial-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+  }
+ 
+  .testimonial-card__avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(93, 219, 130, 0.12);
+    border: 1px solid rgba(93, 219, 130, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--green-light);
+    letter-spacing: 0.04em;
+  }
+ 
+  .testimonial-card__name {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+ 
+  .testimonial-card__role {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+ 
+  /* ────────────────────────────────────────────
+     DESKTOP GRID — ≥640px
+     Overrides the mobile scroll strip with a
+     3-column grid. Stars are revealed and cards
+     get more generous padding.
+  ──────────────────────────────────────────── */
+  @media (min-width: 640px) {
+    .testimonials {
+      padding: 96px 48px;
+    }
+ 
+    .testimonials__heading {
+      font-size: 42px;
+      margin-bottom: 48px;
+    }
+ 
+    .testimonials__track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+    }
+ 
+    /* Reset strip-specific card sizing */
+    .testimonials__track .testimonial-card {
+      flex: none;
+      padding: 40px 36px 32px;
+    }
+ 
+    /* Restore glyph to full size */
+    .testimonial-card__glyph {
+      font-size: 140px;
+      top: -10px;
+      left: 24px;
+    }
+ 
+    /* Show stars on desktop */
+    .testimonial-card__stars {
+      display: flex;
+    }
+ 
+    /* Slightly larger quote on desktop */
+    .testimonial-card__quote {
+      font-size: 15.5px;
+      padding-top: 28px;
+    }
+  }
