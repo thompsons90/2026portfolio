@@ -80,8 +80,7 @@
     elements.forEach(function (el, i) {
       setTimeout(
         function () {
-          el.style.transition =
-            "opacity 0.38s ease, transform 0.38s cubic-bezier(0.23,1,0.32,1)";
+          el.style.transition = "opacity 0.38s ease, transform 0.38s cubic-bezier(0.23,1,0.32,1)";
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
         },
@@ -180,7 +179,9 @@
 
               // Beat 5 — stagger panel content in
               var staggerEls = Array.from(
-                highlightsPanel.querySelectorAll(".highlights-experience__header, .highlights-tl-item"),
+                highlightsPanel.querySelectorAll(
+                  ".highlights-experience__header, .highlights-tl-item",
+                ),
               );
               staggerIn(staggerEls);
 
@@ -301,3 +302,60 @@
     }
   });
 })();
+
+// ─────────────────────────────────────────────────────────────
+// SKILLS SECTION
+// ─────────────────────────────────────────────────────────────
+const core = [
+  { label: "React", size: "xl" },
+  { label: "TypeScript", size: "xl" },
+  { label: "JavaScript", size: "xl" },
+  { label: "AI Prompts", size: "lg" },
+  { label: "Spec Kit", size: "lg" },
+];
+
+const secondary = [
+  { label: "C#.NET", size: "md", blue: true },
+  { label: "HTML", size: "md", blue: true },
+  { label: "CSS", size: "md", blue: true },
+  { label: "Tailwind", size: "md", blue: true },
+  { label: "Material UI", size: "sm", blue: true },
+  { label: "Responsive", size: "sm", blue: true },
+  { label: "Mobile-First Design", size: "sm", blue: true },
+  { label: "Playwright", size: "sm", blue: true },
+  { label: "Vitest", size: "xs", blue: true },
+  { label: "Jest", size: "xs", blue: true },
+  { label: "Docker", size: "xs", blue: true },
+  { label: "SQL", size: "xs", blue: true },
+  { label: "Git Version Control", size: "xs", blue: true },
+  { label: "CI/CD", size: "xs", blue: true },
+  { label: "SDLC", size: "xs", blue: true },
+  { label: "RESTful API", size: "xs", blue: true },
+  { label: "Figma", size: "xs", blue: true },
+  { label: "Jira", size: "xs", blue: true },
+];
+
+const soft = [
+  { label: "Communication", size: "lg", soft: true },
+  { label: "Problem-solving", size: "lg", soft: true },
+  { label: "Collaboration", size: "md", soft: true },
+  { label: "Ownership", size: "md", soft: true },
+];
+
+function render(containerId, items) {
+  const el = document.getElementById(containerId);
+  items.forEach((item, i) => {
+    const chip = document.createElement("span");
+    const classes = ["chip", item.size];
+    if (item.blue) classes.push("blue");
+    if (item.soft) classes.push("soft");
+    chip.className = classes.join(" ");
+    chip.textContent = item.label;
+    chip.style.animationDelay = `${i * 40}ms`;
+    el.appendChild(chip);
+  });
+}
+
+render("core", core);
+render("secondary", secondary);
+render("soft", soft);
